@@ -225,7 +225,7 @@ class ChallengeBox extends StatelessWidget {
             alignment: Alignment.bottomLeft,
              child: Text(
               challengeName, 
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300, color:T),
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300, color: textColor),
                                  ),
            )
               
