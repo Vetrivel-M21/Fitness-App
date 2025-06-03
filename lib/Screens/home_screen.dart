@@ -1,4 +1,5 @@
 import 'package:fitness_app/Screens/Widgets/today_plan.dart';
+import 'package:fitness_app/Screens/Widgets/today_plan_section.dart';
 import 'package:fitness_app/Screens/Widgets/workout_card.dart';
 import 'package:fitness_app/Screens/analytics.dart';
 import 'package:fitness_app/Screens/explore.dart';
@@ -62,6 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedIndex = index;
         });
       },
+      // explain animatedcontainer
+      // The AnimatedContainer widget automatically transitions between the old and new values of its properties when they change.
+      // This makes it easy to create smooth animations without having to manually manage the animation controller.
+
       child: AnimatedContainer(
         duration: Duration(milliseconds: 250),
         padding: EdgeInsets.symmetric(
@@ -142,60 +147,9 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Popular Workouts",
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              WorkOutCard(),
-                              WorkOutCard(),
-                              WorkOutCard(),
-                              WorkOutCard(),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                PopularWorkouts(),
                 SizedBox(height: 20),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Today Plan",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 25),
-                      TodayPlan(),
-                      SizedBox(height: 25),
-                      TodayPlan(),
-                      SizedBox(height: 25),
-                      TodayPlan(),
-                      SizedBox(height: 25),
-                      TodayPlan(),
-                      SizedBox(height: 25),
-                    ],
-                  ),
-                ),
+                TodayPlanSection(),
               ],
             ),
           ),
@@ -204,3 +158,43 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+class PopularWorkouts extends StatelessWidget {
+  const PopularWorkouts({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(0.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Popular Workouts",
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: 10),
+    
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                WorkOutCard(),
+                WorkOutCard(),
+                WorkOutCard(),
+                WorkOutCard(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+

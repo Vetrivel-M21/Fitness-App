@@ -27,8 +27,8 @@ class WorkOutCard extends StatelessWidget {
           alignment: Alignment.bottomLeft,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
               colors: [Colors.transparent, Colors.black],
             ),
           ),
